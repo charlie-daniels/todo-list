@@ -5,7 +5,12 @@ export const Priority = {
   LOW: 'low',
 };
 
-export default (title = 'default', description = '', date = new Date(Date.now()), priority = Priority.LOW) => {
+export default ({
+  title = 'default',
+  description = '',
+  date = new Date(Date.now()).toISOString().slice(0, 10),
+  priority = Priority.LOW,
+}) => {
   const task = {
     title,
     description,
