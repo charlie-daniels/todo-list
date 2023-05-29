@@ -1,4 +1,21 @@
 export default (() => {
+  // Class operators
+  const toggleElementHidden = (el) => {
+    el.classList.toggle('hidden');
+  };
+
+  const callTaskMenu = (parentProjectNumber) => {
+    const taskMenu = document.getElementById('form-create-task');
+    toggleElementHidden(taskMenu);
+    taskMenu.setAttribute('data-parent-project-number', parentProjectNumber);
+  };
+
+  const hideTaskMenu = () => {
+    const taskMenu = document.getElementById('form-create-task');
+    toggleElementHidden(taskMenu);
+    taskMenu.removeAttribute('data-parent-project-number');
+  };
+
   const addTask = (task, parentProjectNumber) => {
     const container = document.createElement('div');
     const title = document.createElement('h2');
@@ -14,16 +31,12 @@ export default (() => {
 
     container.append(title, description, date, priority);
     parent.appendChild(container);
+    hideTaskMenu();
   };
 
   const getNextProjectNumber = () => {
     const count = document.querySelectorAll('[data-project-number]').length;
     return count + 1;
-  };
-
-  const callTaskMenu = (parentProjectNumber) => {
-    const taskMenu = document.getElementById('form-create-task');
-    taskMenu.setAttribute('data-parent-project-number', parentProjectNumber);
   };
 
   const addProject = (project) => {
@@ -45,5 +58,5 @@ export default (() => {
     document.body.appendChild(container);
   };
 
-  return { addTask, addProject };
+  return { addTask, addProject, toggleElementHidden };
 })();

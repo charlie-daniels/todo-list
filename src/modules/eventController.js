@@ -36,7 +36,16 @@ const createProject = (submitEvent) => {
   formCreateTask.addEventListener('submit', (e) => {
     const parentProjectNumber = e.target.getAttribute('data-parent-project-number');
     createTask(e, parentProjectNumber);
+    e.target.reset();
   });
+
   const formCreateProject = document.getElementById('form-create-project');
-  formCreateProject.addEventListener('submit', (e) => createProject(e));
+  formCreateProject.addEventListener('submit', (e) => {
+    createProject(e);
+    DOM.toggleElementHidden(e.target);
+    e.target.reset();
+  });
+
+  const showProjectMenu = document.getElementById('show-project-menu');
+  showProjectMenu.addEventListener('click', () => DOM.toggleElementHidden(formCreateProject));
 })();
