@@ -1,5 +1,7 @@
-export default () => {
+export default ({ title = 'default', description = '' }) => {
   const project = {
+    title,
+    description,
     tasks: [],
   };
 

@@ -13,5 +13,15 @@ export default (() => {
     document.body.appendChild(container);
   };
 
-  return { addTask };
+  const addProject = (project) => {
+    const container = document.createElement('div');
+    const title = document.createElement('h2');
+    const description = document.createElement('p');
+    title.textContent = project.title;
+    description.textContent = project.description;
+    container.append(title, description);
+    document.body.appendChild(container);
+  };
+
+  return { addTask, addProject };
 })();
