@@ -2,8 +2,6 @@ import DOM from './domController';
 import Task from './Task';
 import Project from './Project';
 
-const projects = [];
-
 // Retrieves formData from form submit event.
 const getFormData = (submitEvent) => {
   submitEvent.preventDefault();
@@ -16,9 +14,9 @@ const getFormData = (submitEvent) => {
   return data;
 };
 
-const createTask = (submitEvent) => {
+const createTask = (submitEvent, projectNumber) => {
   const newTask = Task(getFormData(submitEvent));
-  DOM.addTask(newTask);
+  DOM.addTask(newTask, projectNumber);
 };
 
 const createProject = (submitEvent) => {
@@ -35,8 +33,10 @@ const createProject = (submitEvent) => {
 
   // Add event listeners
   const formCreateTask = document.getElementById('form-create-task');
-  formCreateTask.addEventListener('submit', (e) => createTask(e));
-
+  formCreateTask.addEventListener('submit', (e) => {
+    const parentProjectNumber = e.target.getAttribute('data-parent-project-number');
+    createTask(e, parentProjectNumber);
+  });
   const formCreateProject = document.getElementById('form-create-project');
   formCreateProject.addEventListener('submit', (e) => createProject(e));
 })();
