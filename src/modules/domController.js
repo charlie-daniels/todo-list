@@ -46,33 +46,40 @@ export default (() => {
     project.classList.remove('hidden');
   };
 
-  const addToProjectMenu = (el, title) => {
+  const addToProjectMenu = (el, title, number) => {
     const buttonSelectProject = document.createElement('button');
     buttonSelectProject.textContent = title;
+    buttonSelectProject.setAttribute('data-project-number', number);
     buttonSelectProject.addEventListener('click', () => showProject(el));
     const projectList = document.querySelector('.project-list');
     projectList.append(buttonSelectProject);
     showProject(el);
   };
 
+  const deleteProject = (number) => {
+    const related = document.querySelectorAll(`[data-project-number="${number}"]`);
+    related.forEach((e) => e.remove());
+  };
+
   const addProject = (project) => {
     const container = document.createElement('div');
     const title = document.createElement('h2');
     const description = document.createElement('p');
-    const buttonAddTask = document.createElement('button');
     const projectNumber = getNextProjectNumber();
     container.setAttribute('data-project-number', projectNumber);
     container.classList.add('project');
-    addToProjectMenu(container, project.title);
+    addToProjectMenu(container, project.title, projectNumber);
 
     title.textContent = project.title;
     description.textContent = project.description;
+    const buttonAddTask = document.createElement('button');
     buttonAddTask.textContent = 'add task';
-    buttonAddTask.addEventListener('click', () => {
-      callTaskMenu(projectNumber);
-    });
+    buttonAddTask.addEventListener('click', () => callTaskMenu(projectNumber));
+    const buttonDeleteProject = document.createElement('button');
+    buttonDeleteProject.textContent = 'delete project';
+    buttonDeleteProject.addEventListener('click', () => deleteProject(projectNumber));
 
-    container.append(title, description, buttonAddTask);
+    container.append(title, description, buttonAddTask, buttonDeleteProject);
     const projectContainer = document.getElementById('content');
     projectContainer.appendChild(container);
   };
