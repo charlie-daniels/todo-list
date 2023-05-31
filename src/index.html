@@ -7,26 +7,36 @@
     <title>todo!</title>
 </head>
 <body>
-    <h1>todo!</h1>
-    <button id="show-project-menu">create project</button>
-    <form class="align-vertical hidden" action="" id="form-create-task" data-parent-project-number="1">
-        <h2>create task</h2>
-        <input type="text" name="title" placeholder="label">
-        <textarea rows="2" name="description" placeholder="a brief description..."></textarea>
-        <input type="date" name="date">
-        <select name="priority">
-            <option value="critical">critical</option>
-            <option value="high">high</option>
-            <option value="medium">medium</option>
-            <option value="low">low</option>
-        </select>
-        <input type="submit" value="create">
-    </form>
-    <form class="align-vertical hidden" action="" id="form-create-project">
-        <h2>create project</h2>
-        <input type="text" name="title" placeholder="title">
-        <textarea rows="2" name="description" placeholder="a brief description..."></textarea>
-        <input type="submit" value="create">
-    </form>
+    <div id="container">
+        <div id="header">
+            <h1>todo!</h1>
+        </div>
+        <div id="sidebar">
+            <button id="show-project-menu">create project</button>
+            <div class="project-list"></div>
+        </div>
+        <form class="align-vertical hidden" action="" id="form-create-task" data-parent-project-number="1">
+            <h2>create task</h2>
+            <input type="text" name="title" placeholder="label">
+            <textarea rows="2" name="description" placeholder="a brief description..."></textarea>
+            <input type="date" name="date">
+            <select name="priority">
+                <option value="critical">critical</option>
+                <option value="high">high</option>
+                <option value="medium">medium</option>
+                <option value="low">low</option>
+            </select>
+            <input type="submit" value="create">
+        </form>
+        <form class="align-vertical hidden" action="" id="form-create-project">
+            <h2>create project</h2>
+            <input type="text" name="title" placeholder="title">
+            <textarea rows="2" name="description" placeholder="a brief description..."></textarea>
+            <input type="submit" value="create">
+        </form>
+        <div id="content">
+            
+        </div>
+    </div>
 </body>
 </html>

@@ -39,14 +39,32 @@ export default (() => {
     return count + 1;
   };
 
+  const showProject = (project) => {
+    // Hide current project and unhide this one
+    const currentProject = document.querySelector('.project:not(.hidden)');
+    if (currentProject) currentProject.classList.add('hidden');
+    project.classList.remove('hidden');
+  };
+
+  const addToProjectMenu = (el, title) => {
+    const buttonSelectProject = document.createElement('button');
+    buttonSelectProject.textContent = title;
+    buttonSelectProject.addEventListener('click', () => showProject(el));
+    const projectList = document.querySelector('.project-list');
+    projectList.append(buttonSelectProject);
+    showProject(el);
+  };
+
   const addProject = (project) => {
     const container = document.createElement('div');
     const title = document.createElement('h2');
     const description = document.createElement('p');
     const buttonAddTask = document.createElement('button');
     const projectNumber = getNextProjectNumber();
-
     container.setAttribute('data-project-number', projectNumber);
+    container.classList.add('project');
+    addToProjectMenu(container, project.title);
+
     title.textContent = project.title;
     description.textContent = project.description;
     buttonAddTask.textContent = 'add task';
@@ -55,7 +73,8 @@ export default (() => {
     });
 
     container.append(title, description, buttonAddTask);
-    document.body.appendChild(container);
+    const projectContainer = document.getElementById('content');
+    projectContainer.appendChild(container);
   };
 
   return { addTask, addProject, toggleElementHidden };
