@@ -22,7 +22,7 @@ export default (() => {
     const description = document.createElement('p');
     const date = document.createElement('p');
     const priority = document.createElement('p');
-    const parent = document.querySelector(`[data-project-number="${parentProjectNumber}"]`);
+    const parent = document.querySelector(`[data-project-number="${parentProjectNumber}"].project`);
 
     title.textContent = task.title;
     description.textContent = task.description;
