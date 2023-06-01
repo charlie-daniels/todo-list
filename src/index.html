@@ -11,11 +11,11 @@
         <div id="header">
             <h1>todo!</h1>
         </div>
-        <div id="sidebar">
+        <div id="sidebar" class="align-vertical">
             <button id="show-project-menu">create project</button>
-            <div class="project-list"></div>
+            <div class="project-list align-vertical"></div>
         </div>
-        <form class="align-vertical hidden" action="" id="form-create-task" data-parent-project-number="1">
+        <form id="form-create-task" class="align-vertical hidden" action="" data-parent-project-number="1">
             <h2>create task</h2>
             <input type="text" name="title" placeholder="label">
             <textarea rows="2" name="description" placeholder="a brief description..."></textarea>
@@ -28,7 +28,7 @@
             </select>
             <input type="submit" value="create">
         </form>
-        <form class="align-vertical hidden" action="" id="form-create-project">
+        <form id="form-create-project" class="align-vertical hidden" action="">
             <h2>create project</h2>
             <input type="text" name="title" placeholder="title">
             <textarea rows="2" name="description" placeholder="a brief description..."></textarea>

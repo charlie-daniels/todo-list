@@ -1,3 +1,12 @@
+:root{
+  --background-bright: #dad7cd;
+  --background-dark: #3a5a40;
+  --text-bright: #edede9;
+  --text-dark: #344e41;
+  --highlight-bright: #a3b18a;
+  --highlight-dark: #588157;
+} 
+
 /* Fonts */
 
 body {
@@ -14,6 +23,12 @@ h2 {
 
 /* Page properties */
 
+body,
+#container {
+  background-color: var(--background-bright);
+  height: 100vh;
+}
+
 body > div {
   display: grid;
   grid-template-columns: 1fr 3fr;
@@ -25,18 +40,42 @@ body > div {
 }
 
 #header {
+  background-color: var(--background-dark);
+  color: var(--text-bright);
   grid-area: 1 / 1 / span 1 / span 2;
 }
 
+#sidebar {
+  background-color: var(--highlight-dark);
+  flex-grow: 1;
+  gap: 1rem;
+}
 
-/* Visual classes */
+/* Properties */
 
 .hidden {
   display: none !important;
 }
 
 .align-vertical {
+  display: flex;
+  flex-direction: column;
+}
+
+.align-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header {
   display: grid;
+  grid-template-columns: min-content auto min-content;
+  gap: 0.5rem;
+}
+
+.header :nth-child(2) {
+  justify-self: left;
 }
 
 /* Forms */
@@ -48,5 +87,15 @@ form {
   transform: translate(-50%, -50%);
   border: 1px solid;
   gap: .25rem;
-  padding: 0.5rem;
+  margin: 0.5rem;
+}
+
+/* Projects */
+
+.project-list {
+  gap: .5rem;
+}
+
+.project-list button {
+  width: min-content;
 }

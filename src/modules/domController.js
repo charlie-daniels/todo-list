@@ -81,7 +81,10 @@ export default (() => {
     buttonDeleteProject.textContent = 'delete project';
     buttonDeleteProject.addEventListener('click', () => deleteProject(projectNumber));
 
-    container.append(title, description, buttonAddTask, buttonDeleteProject);
+    const header = document.createElement('div');
+    header.classList.add('header');
+    header.append(title, buttonAddTask, buttonDeleteProject);
+    container.append(header, description);
     document.getElementById('content').appendChild(container);
   };
 
