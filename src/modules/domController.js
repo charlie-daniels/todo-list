@@ -1,5 +1,4 @@
 export default (() => {
-  // Class operators
   const toggleElementHidden = (el) => {
     el.classList.toggle('hidden');
   };
@@ -51,12 +50,13 @@ export default (() => {
     buttonSelectProject.textContent = title;
     buttonSelectProject.setAttribute('data-project-number', number);
     buttonSelectProject.addEventListener('click', () => showProject(el));
-    const projectList = document.querySelector('.project-list');
-    projectList.append(buttonSelectProject);
+
+    document.querySelector('.project-list').append(buttonSelectProject);
     showProject(el);
   };
 
   const deleteProject = (number) => {
+    // Remove project parts; they are not all in one container element
     const related = document.querySelectorAll(`[data-project-number="${number}"]`);
     related.forEach((e) => e.remove());
   };
@@ -72,16 +72,17 @@ export default (() => {
 
     title.textContent = project.title;
     description.textContent = project.description;
+
     const buttonAddTask = document.createElement('button');
     buttonAddTask.textContent = 'add task';
     buttonAddTask.addEventListener('click', () => callTaskMenu(projectNumber));
+
     const buttonDeleteProject = document.createElement('button');
     buttonDeleteProject.textContent = 'delete project';
     buttonDeleteProject.addEventListener('click', () => deleteProject(projectNumber));
 
     container.append(title, description, buttonAddTask, buttonDeleteProject);
-    const projectContainer = document.getElementById('content');
-    projectContainer.appendChild(container);
+    document.getElementById('content').appendChild(container);
   };
 
   return { addTask, addProject, toggleElementHidden };
