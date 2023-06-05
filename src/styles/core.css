@@ -40,7 +40,7 @@ body,
 
 body > div {
   display: grid;
-  grid-template-columns: 8rem auto;
+  grid-template-columns: 9rem auto;
   grid-template-rows: 4rem auto;
 }
 
@@ -121,6 +121,18 @@ form {
 
 .project-list button {
   width: min-content;
+}
+
+/* Tasks */
+
+.task {
+  margin: 0.5rem 0;
+  gap: 2px;
+}
+
+.task p {
+  font-weight: 200;
+  display: inline;
 }
 
 /* Animations */

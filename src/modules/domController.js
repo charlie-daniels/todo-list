@@ -17,7 +17,7 @@ export default (() => {
 
   const addTask = (task, parentProjectNumber) => {
     const container = document.createElement('div');
-    const title = document.createElement('h2');
+    const title = document.createElement('h3');
     const description = document.createElement('p');
     const date = document.createElement('p');
     const priority = document.createElement('p');
@@ -27,6 +27,13 @@ export default (() => {
     description.textContent = task.description;
     date.textContent = task.date;
     priority.textContent = task.priority;
+
+    container.classList.add('task', 'align-vertical');
+
+    title.classList.add('title');
+    description.classList.add('description');
+    date.classList.add('date');
+    priority.classList.add('priority');
 
     container.append(title, description, date, priority);
     parent.appendChild(container);
