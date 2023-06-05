@@ -1,16 +1,17 @@
 :root{
-  --background-bright: #dad7cd;
-  --background-dark: #3a5a40;
-  --text-bright: #edede9;
-  --text-dark: #344e41;
-  --highlight-bright: #a3b18a;
-  --highlight-dark: #588157;
+  --background-bright: #f9faf4;
+  --background-dark: #4a6163;
+  --text-bright: #f9faf4;
+  --text-dark: #4a6163;
+  --highlight-bright: #ffc94b;
+  --highlight: #f17a7e;
 } 
 
 /* Fonts */
 
 body {
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bolder;
 }
 
 h1 {
@@ -19,6 +20,14 @@ h1 {
 
 h2 {
   font-size: 1.5rem;
+}
+
+.highlight-bright {
+  color: var(--highlight-bright);
+}
+
+.highlight {
+  color: var(--highlight);
 }
 
 /* Page properties */
@@ -44,7 +53,7 @@ body > div {
 }
 
 #sidebar {
-  background-color: var(--highlight-dark);
+  background-color: var(--background-dark);
   flex-grow: 1;
   gap: 1rem;
 }
@@ -87,8 +96,6 @@ body > div {
   color: var(--text-bright);
 }
 
-
-
 /* Forms */
 
 form {
@@ -97,7 +104,8 @@ form {
   left: 50%;
   transform: translate(-50%, -50%);
   border: 1px solid;
-  gap: .25rem;
+  border-radius: 5px;
+  gap: .3rem;
   margin: 0.5rem;
 }
 
@@ -125,4 +133,8 @@ button {
 
 button:hover {
   background-color: rgba(0, 0, 0, 0.2);
+}
+
+button:hover.danger {
+  background-color: var(--highlight);
 }

@@ -78,6 +78,7 @@ export default (() => {
     buttonAddTask.addEventListener('click', () => callTaskMenu(projectNumber));
 
     const buttonDeleteProject = document.createElement('button');
+    buttonDeleteProject.classList.add('danger');
     buttonDeleteProject.textContent = 'remove';
     buttonDeleteProject.addEventListener('click', () => deleteProject(projectNumber));
 
