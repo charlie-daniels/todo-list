@@ -68,6 +68,7 @@ body > div {
 
 .header {
   display: grid;
+  align-items: center;
   grid-template-columns: min-content auto min-content;
   gap: 0.5rem;
 }
@@ -102,10 +103,26 @@ form {
 
 /* Projects */
 
+.project button {
+  height: min-content;
+}
+
 .project-list {
   gap: .5rem;
 }
 
 .project-list button {
   width: min-content;
+}
+
+/* Animations */
+
+button {
+  padding: 0.3rem;
+  border-radius: 2px;
+  transition: all 0.2s ease-in;
+}
+
+button:hover {
+  background-color: rgba(0, 0, 0, 0.2);
 }
